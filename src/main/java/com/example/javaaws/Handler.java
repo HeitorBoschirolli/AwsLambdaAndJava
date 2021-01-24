@@ -6,9 +6,6 @@ import org.joda.time.DateTime;
 
 public class Handler implements RequestHandler<Input, Output> {
     public Output handleRequest(Input input, Context context) {
-        Output output = new Output();
-        output.setConcatenation(input.getValue1() + input.getValue2());
-        output.setDateString(DateTime.now().toString());
-        return output;
+        return new Output(input.getValue1() + input.getValue2(), DateTime.now().toString());
     }
 }
