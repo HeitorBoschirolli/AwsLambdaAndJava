@@ -4,10 +4,11 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.joda.time.DateTime;
 
-import java.util.Map;
-
-public class Handler implements RequestHandler<Map<String,String>, String> {
-    public String handleRequest(Map<String, String> event, Context context) {
-        return DateTime.now().toString();
+public class Handler implements RequestHandler<Input, Output> {
+    public Output handleRequest(Input input, Context context) {
+        Output output = new Output();
+        output.setConcatenation(input.getValue1() + input.getValue2());
+        output.setDateString(DateTime.now().toString());
+        return output;
     }
 }
