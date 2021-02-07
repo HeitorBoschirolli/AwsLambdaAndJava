@@ -1,10 +1,14 @@
 package com.example.javaaws;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Output {
     private String concatenation;
     private String dateString;
 
-    public Output(String concatenation, String dateString) {
+    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+    public Output(@JsonProperty("concatenation") String concatenation, @JsonProperty("dateString") String dateString) {
         this.concatenation = concatenation;
         this.dateString = dateString;
     }
