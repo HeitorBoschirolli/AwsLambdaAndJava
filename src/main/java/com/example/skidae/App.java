@@ -1,4 +1,4 @@
-package com.example.javaaws;
+package com.example.skidae;
 
 /**
  * Hello world!
